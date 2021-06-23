@@ -11,18 +11,6 @@ def dfs(graph, node, visited):
             dfs(graph, i + 1, visited)
 
 
-n, m, v = map(int, input().split(' '))
-
-matrix = [[0] * n for x in range(n)]
-
-for i in range(m):
-    a, b = map(int, input().split(' '))
-    matrix[a - 1][b - 1] = 1
-    matrix[b - 1][a - 1] = 1
-
-stack = list()
-queue = deque()
-
 """
 def bfs(graph, node, visited, queue):
     if node in visited:
@@ -49,6 +37,18 @@ def bfs(graph, node, visited):
             if a != 0 and i + 1 not in visited and i + 1 not in queue:
                 queue.append(i + 1)
 
+
+n, m, v = map(int, input().split(' '))
+
+matrix = [[0] * n for x in range(n)]
+
+for i in range(m):
+    a, b = map(int, input().split(' '))
+    matrix[a - 1][b - 1] = 1
+    matrix[b - 1][a - 1] = 1
+
+stack = list()
+queue = deque()
 
 dfs(matrix, v, stack)
 stack.clear()
